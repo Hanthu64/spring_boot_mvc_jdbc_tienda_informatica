@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.iesvegademijas.tienda_informatica.modelo.Fabricante;
 
-public interface FabricanteDAO {
+public interface
+
+FabricanteDAO {
 		
 	public void create(Fabricante fabricante);
 	
