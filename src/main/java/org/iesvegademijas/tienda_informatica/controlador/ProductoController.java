@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class ProductoController {
         return "crear-producto";
     }
 
-    @GetMapping("/productos/crear")
+    @PostMapping("/productos/crear")
     public RedirectView submitCrear(@ModelAttribute("producto") Producto producto){
         productoService.newProducto(producto);
         return new RedirectView("/productos");
@@ -55,13 +56,13 @@ public class ProductoController {
         return "editar-producto";
     }
 
-    @GetMapping("/productos/editar/{id}")
+    @PostMapping("/productos/editar/{id}")
     public RedirectView submitEditar(@ModelAttribute("producto") Producto producto){
         productoService.replaceProducto(producto);
         return new RedirectView("/productos");
     }
 
-    @GetMapping("/productos/borrar/{id}")
+    @PostMapping("/productos/borrar/{id}")
     public RedirectView submitBorrar(@PathVariable int id){
         productoService.deleteProducto(id);
         return new RedirectView("/productos");
